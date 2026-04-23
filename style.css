@@ -1,3 +1,499 @@
+/* =========================
+   RESET / GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050505;
+  color: #f3efe6;
+  font-family: "Be Vietnam Pro", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================
+   REUSABLE TEXT / NAV
+========================= */
+
+.microLabel {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.68);
+}
+
+.navLinks {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.backLink {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.78);
+  border: 1px solid rgba(243, 239, 230, 0.18);
+  padding: 10px 14px;
+  transition: 0.25s ease;
+}
+
+.backLink:hover {
+  border-color: rgba(255, 122, 61, 0.65);
+  color: #f4c27a;
+}
+
+
+/* =========================
+   LANDING PAGE
+========================= */
+
+.landingPage {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  position: fixed;
+  inset: 0;
+  background-image: url("./img/bw-nyc.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transform: scale(1.02);
+}
+
+.backgroundOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  z-index: 1;
+}
+
+.landingTopBar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 34px 40px;
+}
+
+.aboutLink {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f3efe6;
+  border: 1px solid rgba(243, 239, 230, 0.24);
+  padding: 10px 14px;
+  transition: 0.25s ease;
+}
+
+.aboutLink:hover {
+  border-color: rgba(255, 122, 61, 0.65);
+  color: #f4c27a;
+}
+
+.landingLayout {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 110px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.landingContent {
+  max-width: 900px;
+}
+
+.landingContent h1 {
+  font-size: clamp(68px, 11vw, 150px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  margin-bottom: 34px;
+}
+
+.landingText {
+  max-width: 760px;
+  margin: 0 auto 42px auto;
+  font-size: 18px;
+  line-height: 1.9;
+  color: rgba(243, 239, 230, 0.82);
+}
+
+.enterLink {
+  display: inline-block;
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(243, 239, 230, 0.24);
+  padding: 14px 22px;
+  transition: 0.25s ease;
+}
+
+.enterLink:hover {
+  border-color: rgba(255, 122, 61, 0.65);
+  color: #f4c27a;
+}
+
+
+/* =========================
+   SHARED PAGE STRUCTURE
+========================= */
+
+.pageGlow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 10%, rgba(255, 122, 61, 0.06), transparent 30%);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.topSection,
+.mainLayout,
+.aboutLayout {
+  position: relative;
+  z-index: 1;
+}
+
+.topSection {
+  padding: 18px 28px 10px 28px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(243, 239, 230, 0.12);
+}
+
+.topContent {
+  padding: 14px 0 2px 0;
+  text-align: center;
+}
+
+.topText {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgba(243, 239, 230, 0.9);
+}
+
+
+/* =========================
+   MAP PAGE
+========================= */
+
+.mapPage {
+  background: #000000;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mainLayout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  padding: 8px 28px 20px 28px;
+  height: calc(100vh - 110px);
+  align-items: stretch;
+}
+
+
+/* =========================
+   SIDEBAR / PANELS
+========================= */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+}
+
+.statusPanel {
+  flex: 1;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  padding: 18px;
+}
+
+.panelLabel {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.68);
+  margin-bottom: 14px;
+}
+
+.panelText,
+.statusText {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(243, 239, 230, 0.78);
+}
+
+
+/* =========================
+   BUTTONS / TOGGLES
+========================= */
+
+.toggleRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.toggleButton {
+  border: 1px solid rgba(243, 239, 230, 0.18);
+  background: transparent;
+  color: #f3efe6;
+  padding: 10px 14px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.toggleButton:hover {
+  border-color: rgba(255, 122, 61, 0.65);
+  color: #f4c27a;
+  transform: translateY(-1px);
+}
+
+.toggleButton.active {
+  background: rgba(255, 122, 61, 0.12);
+  border-color: rgba(255, 122, 61, 0.6);
+  color: #f4c27a;
+  box-shadow: 0 0 24px rgba(255, 122, 61, 0.08);
+}
+
+
+/* =========================
+   MAP LAYOUT
+========================= */
+
+.mapsArea {
+  min-height: 0;
+  height: 100%;
+}
+
+.mapCompare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  height: 100%;
+}
+
+.mapColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+
+.mapColumn h3 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.mapFrame,
+.compareFrame {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  background: #080808;
+}
+
+
+/* =========================
+   LEFT MAP
+========================= */
+
 #map {
-  height: 500px;
+  height: 100%;
+  width: 100%;
+  filter: grayscale(0) brightness(1.08) contrast(1.08) saturate(1.15);
+}
+
+.mapOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(6, 6, 6, 0.01), rgba(6, 6, 6, 0.08)),
+    radial-gradient(circle at 50% 50%, transparent 58%, rgba(6, 6, 6, 0.08));
+  mix-blend-mode: multiply;
+}
+
+
+/* =========================
+   RIGHT MAP / COMPARISON
+========================= */
+
+.compareFrame iframe,
+.compareFrame img {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+
+/* =========================
+   LEAFLET STYLES
+========================= */
+
+.leaflet-control-zoom a {
+  background: rgba(8, 8, 8, 0.9) !important;
+  color: #f3efe6 !important;
+  border-bottom: 1px solid rgba(243, 239, 230, 0.12) !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #0a0a0a;
+  color: #f3efe6;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leaflet-popup-content {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+}
+
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.aboutPage {
+  background:
+    radial-gradient(circle at top, rgba(161, 24, 24, 0.12), transparent 26%),
+    linear-gradient(180deg, #050505 0%, #0a0a0a 60%, #040404 100%);
+}
+
+.aboutLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 24px 34px 60px 34px;
+}
+
+.aboutColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .mapPage {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .mainLayout,
+  .mapCompare,
+  .aboutLayout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .mapFrame,
+  .compareFrame {
+    min-height: 420px;
+  }
+
+  #map {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 700px) {
+  .landingTopBar,
+  .landingLayout,
+  .topSection,
+  .mainLayout,
+  .aboutLayout {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navLinks {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .landingContent h1 {
+    font-size: clamp(52px, 16vw, 92px);
+    margin-bottom: 24px;
+  }
+
+  .landingText,
+  .topText,
+  .panelText,
+  .statusText {
+    font-size: 13px;
+  }
+
+  .toggleButton {
+    width: 100%;
+  }
 }

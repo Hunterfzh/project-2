@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map | Where Heat Lingers</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="mapPage">
+    <div class="pageGlow"></div>
+
+    <header class="topSection">
+      <div class="topBar">
+        <p class="microLabel">INTERACTIVE DATA MAP</p>
+
+        <div class="navLinks">
+          <a href="index.html" class="backLink">HOME</a>
+          <a href="about.html" class="backLink">ABOUT</a>
+        </div>
+      </div>
+
+      <div class="topContent">
+        <p class="topText">
+          Use the map to compare boroughs, peak heat zones, and historic
+          redlining across New York City.
+        </p>
+      </div>
+    </header>
+
+    <main class="mainLayout">
+      <aside class="sidebar">
+        <div class="panel">
+          <p class="panelLabel">BOROUGH</p>
+
+          <div class="toggleRow" id="boroughControls">
+            <button class="toggleButton active" data-borough="All">All</button>
+            <button class="toggleButton" data-borough="Bronx">Bronx</button>
+            <button class="toggleButton" data-borough="Brooklyn">Brooklyn</button>
+            <button class="toggleButton" data-borough="Manhattan">Manhattan</button>
+            <button class="toggleButton" data-borough="Queens">Queens</button>
+            <button class="toggleButton" data-borough="Staten Island">Staten</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="panelLabel">HEAT VIEW</p>
+
+          <div class="toggleRow" id="viewControls">
+            <button class="toggleButton active" data-view="avg">Average</button>
+            <button class="toggleButton" data-view="max">Peak</button>
+          </div>
+        </div>
+
+        <div class="panel statusPanel">
+          <p class="panelLabel">STATUS</p>
+
+          <div id="status" class="statusText">
+            Loading temperature data...
+          </div>
+        </div>
+      </aside>
+
+      <section class="mapsArea">
+        <div class="mapCompare">
+          <div class="mapColumn">
+            <h3>NYC Heat Map</h3>
+
+            <div class="mapFrame">
+              <div id="map"></div>
+              <div class="mapOverlay"></div>
+            </div>
+          </div>
+
+          <div class="mapColumn">
+            <h3>Redlining Map of NYC</h3>
+
+            <div class="compareFrame">
+              <iframe
+                src="https://a816-dohbesp.nyc.gov/IndicatorPublic/maps/HOLC_map/HOLC_map.html#12/40.7508/-73.9771"
+                title="Historic Redlining Map of NYC"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
