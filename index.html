@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Visualization Project</title>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 2: Wed Prod2</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
 
-    <!-- Add any external javascript libraries here with a <script> tag -->
-    
-</head>
-<body>
-    
+    <title>NYC Urban Heat</title>
+  </head>
+
+  <body>
+    <h1>NYC Urban Heat Inequality</h1>
+
+    <div id="status">Loading the temperature data</div>
+
+    <div class="MasterButtons">
+      <button id="AllButton">All Boroughs</button>
+      <button id="Bronx">Bronx</button>
+      <button id="Manhattan">Manhattan</button>
+      <button id="Brooklyn">Brooklyn</button>
+      <button id="Queens">Queens</button>
+      <button id="Staten">Staten Island</button>
+    </div>
+
+    <!-- Leaflet Map -->
+    <div class="map" id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- script.js first, then fetch.js -->
     <script src="script.js"></script>
-</body>
+    <script src="fetch.js"></script>
+  </body>
 </html>
